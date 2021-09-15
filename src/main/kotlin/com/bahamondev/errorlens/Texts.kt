@@ -1,13 +1,13 @@
-package com.github.bahamondev.errorlens
+package com.bahamondev.errorlens
 
 import com.intellij.AbstractBundle
 import org.jetbrains.annotations.NonNls
 import org.jetbrains.annotations.PropertyKey
 
 @NonNls
-private const val BUNDLE = "messages.MyBundle"
+private const val BUNDLE = "messages.Texts"
 
-object MyBundle : AbstractBundle(BUNDLE) {
+object Texts : AbstractBundle(BUNDLE) {
 
     @Suppress("SpreadOperator")
     @JvmStatic

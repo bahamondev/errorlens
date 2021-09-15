@@ -1,6 +1,6 @@
 <idea-plugin>
     <id>com.github.bahamondev.errorlens</id>
-    <name>errorlens</name>
+    <name>ErrorLens</name>
     <vendor>bahamondev</vendor>
 
     <!-- Product and plugin compatibility requirements -->
@@ -8,12 +8,6 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.bahamondev.errorlens.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.bahamondev.errorlens.services.MyProjectService"/>
+        <editor.linePainter implementation="com.bahamondev.errorlens.ErrorLinePainter" />
     </extensions>
-
-    <applicationListeners>
-        <listener class="com.github.bahamondev.errorlens.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
-    </applicationListeners>
 </idea-plugin>
