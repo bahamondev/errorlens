@@ -6,9 +6,14 @@ import com.intellij.openapi.editor.LineExtensionInfo
 import com.intellij.openapi.editor.markup.TextAttributes
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
-import com.intellij.psi.*
+import com.intellij.psi.PsiDocumentManager
+import com.intellij.psi.PsiElement
+import com.intellij.psi.PsiErrorElement
+import com.intellij.psi.PsiFile
+import com.intellij.psi.PsiManager
+import com.intellij.psi.PsiRecursiveElementWalkingVisitor
 import com.intellij.ui.SimpleTextAttributes
-import java.util.*
+import java.util.Collections
 
 
 internal class ErrorLinePainter : EditorLinePainter() {
@@ -20,7 +25,6 @@ internal class ErrorLinePainter : EditorLinePainter() {
     ): MutableCollection<LineExtensionInfo>? {
         val psiFile = PsiManager.getInstance(project).findFile(file)
         val document = psiFile?.let { PsiDocumentManager.getInstance(project).getDocument(it) }
-
         if (psiFile == null || document == null) {
             return null
         }
@@ -50,16 +54,19 @@ internal class ErrorLinePainter : EditorLinePainter() {
     ): MutableList<PsiErrorElement> {
         val lineErrors = mutableListOf<PsiErrorElement>()
 
-        psiFile.accept(object: PsiRecursiveElementWalkingVisitor() {
+        psiFile.accept(object : PsiRecursiveElementWalkingVisitor() {
             override fun elementFinished(element: PsiElement?) {
-                if (element is PsiErrorElement) {
-                    if (lineNumber == document.getLineNumber(element.textOffset)) {
-                        lineErrors.add(element)
-                    }
+                if (element is PsiErrorElement && lineNumber == document.lineNumber(element)) {
+                    lineErrors.add(element)
                 }
             }
         })
+
         return lineErrors
+    }
+
+    fun Document.lineNumber(element: PsiElement): Int? {
+        return if (element.textOffset< this.textLength) this.getLineNumber(element.textOffset) else null
     }
 
 }
