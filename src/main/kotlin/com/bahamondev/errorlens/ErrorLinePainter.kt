@@ -12,6 +12,7 @@ import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.PsiDocumentManager
 import com.intellij.psi.PsiManager
 import com.intellij.ui.SimpleTextAttributes
+import java.awt.Color
 import java.util.Collections
 
 internal class ErrorLinePainter : EditorLinePainter() {
@@ -55,7 +56,7 @@ internal class ErrorLinePainter : EditorLinePainter() {
 
     private fun textAttributes(): TextAttributes {
         return TextAttributes(
-            SimpleTextAttributes.REGULAR_ATTRIBUTES.fgColor,
+            Color.decode(Settings.ERROR_FOREGROUND_COLOR),
             SimpleTextAttributes.REGULAR_ATTRIBUTES.bgColor,
             null,
             null,
