@@ -51,7 +51,7 @@ internal class ErrorLinePainter : EditorLinePainter() {
     }
 
     private fun errorDescriptionToLineInfo(errorDescription: String) =
-        //Replace separator with default IDE tab size???
+        // Replace separator with default IDE tab size???
         Collections.singletonList(LineExtensionInfo("    $errorDescription", textAttributes()))
 
     private fun textAttributes(): TextAttributes {
@@ -63,5 +63,4 @@ internal class ErrorLinePainter : EditorLinePainter() {
             SimpleTextAttributes.REGULAR_ATTRIBUTES.fontStyle
         )
     }
-
 }
