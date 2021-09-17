@@ -1,5 +1,8 @@
 package com.bahamondev.errorlens
 
+import com.intellij.codeInsight.daemon.impl.DaemonCodeAnalyzerEx
+import com.intellij.codeInsight.daemon.impl.HighlightInfo
+import com.intellij.lang.annotation.HighlightSeverity
 import com.intellij.openapi.editor.Document
 import com.intellij.openapi.editor.EditorLinePainter
 import com.intellij.openapi.editor.LineExtensionInfo
@@ -7,14 +10,9 @@ import com.intellij.openapi.editor.markup.TextAttributes
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.PsiDocumentManager
-import com.intellij.psi.PsiElement
-import com.intellij.psi.PsiErrorElement
-import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiManager
-import com.intellij.psi.PsiRecursiveElementWalkingVisitor
 import com.intellij.ui.SimpleTextAttributes
 import java.util.Collections
-
 
 internal class ErrorLinePainter : EditorLinePainter() {
 
@@ -29,13 +27,31 @@ internal class ErrorLinePainter : EditorLinePainter() {
             return null
         }
 
-        val lineErrors = findLineErrors(psiFile, lineNumber, document)
-
-        return lineErrors.firstOrNull()?.let { Collections.singletonList(errorDescriptionToLineInfo(it)) }
+        val lineError = findFirstError(document, project, lineNumber)
+        return lineError?.let { errorDescriptionToLineInfo(it.description) }
     }
 
-    private fun errorDescriptionToLineInfo(errorElement: PsiErrorElement) =
-        LineExtensionInfo(" ${errorElement.errorDescription}", textAttributes())
+    private fun findFirstError(
+        document: Document,
+        project: Project,
+        lineNumber: Int
+    ): HighlightInfo? {
+        var info: HighlightInfo? = null
+        val retrieveFirstErrorAndStop: (HighlightInfo) -> Boolean = { info = it; false }
+        DaemonCodeAnalyzerEx.processHighlights(
+            document,
+            project,
+            HighlightSeverity.ERROR,
+            document.getLineStartOffset(lineNumber),
+            document.getLineEndOffset(lineNumber),
+            retrieveFirstErrorAndStop
+        )
+        return info
+    }
+
+    private fun errorDescriptionToLineInfo(errorDescription: String) =
+        //Replace separator with default IDE tab size???
+        Collections.singletonList(LineExtensionInfo("    $errorDescription", textAttributes()))
 
     private fun textAttributes(): TextAttributes {
         return TextAttributes(
@@ -45,28 +61,6 @@ internal class ErrorLinePainter : EditorLinePainter() {
             null,
             SimpleTextAttributes.REGULAR_ATTRIBUTES.fontStyle
         )
-    }
-
-    private fun findLineErrors(
-        psiFile: PsiFile,
-        lineNumber: Int,
-        document: Document
-    ): MutableList<PsiErrorElement> {
-        val lineErrors = mutableListOf<PsiErrorElement>()
-
-        psiFile.accept(object : PsiRecursiveElementWalkingVisitor() {
-            override fun elementFinished(element: PsiElement?) {
-                if (element is PsiErrorElement && lineNumber == document.lineNumber(element)) {
-                    lineErrors.add(element)
-                }
-            }
-        })
-
-        return lineErrors
-    }
-
-    fun Document.lineNumber(element: PsiElement): Int? {
-        return if (element.textOffset< this.textLength) this.getLineNumber(element.textOffset) else null
     }
 
 }
