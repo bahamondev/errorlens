@@ -4,26 +4,9 @@
 [![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
 
-## Template ToDo list
-
-- [x] Create a new [IntelliJ Platform Plugin Template][template] project.
-- [ ] Verify the [pluginGroup](/gradle.properties), [plugin ID](/src/main/resources/META-INF/plugin.xml)
-  and [sources package](/src/main/kotlin).
-- [ ] Review the [Legal Agreements](https://plugins.jetbrains.com/docs/marketplace/legal-agreements.html).
-- [ ] [Publish a plugin manually](https://plugins.jetbrains.com/docs/intellij/publishing-plugin.html?from=IJPluginTemplate)
-  for the first time.
-- [ ] Set the Plugin ID in the above README badges.
-- [ ] Set the [Deployment Token](https://plugins.jetbrains.com/docs/marketplace/plugin-upload.html).
-- [ ] Click the <kbd>Watch</kbd> button on the top of the [IntelliJ Platform Plugin Template][template] to be notified
-  about releases containing new features and fixes.
-
 <!-- Plugin description -->
-This Fancy IntelliJ Platform Plugin is going to be your implementation of the brilliant ideas that you have.
-
-This specific section is a source for the [plugin.xml](/src/main/resources/META-INF/plugin.xml) file which will be
-extracted by the [Gradle](/build.gradle.kts) during the build process.
-
-To keep everything working, do not remove `<!-- ... -->` sections.
+Errorlens is a plugin for the Intellij IDEs which enhances the error diagnostics.
+With this plugin, error descriptions are shown inline in the editor, in the same line which generates the error.
 <!-- Plugin description end -->
 
 ## Installation
@@ -38,6 +21,21 @@ To keep everything working, do not remove `<!-- ... -->` sections.
   Download the [latest release](https://github.com/bahamondev/errorlens/releases/latest) and install it manually using
   <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
 
+## TODO
+
+- [ ] Show also warnings, weak warnings and typos and make the shown severity level configurable.
+- [ ] The font foreground color should be configurable or at least should be loaded from the color scheme.
+- [ ] Option to show the error description only in the line where the caret is.
+- [ ] Given a pattern or some file extensions, never apply this plugin to those files.
+- [ ] Intelligent parsing for error descriptions. In example: for kotlin not show the error code in between brackets
+  and show only the description
+
+## Contributing
+
+* Fork the project and pull request when the job is done.
+* Use the [Conventional Commits](https://www.conventionalcommits.org) commit standard.
+* Provide test when possible.
+* 
 ---
 Plugin based on the [IntelliJ Platform Plugin Template][template].
 
