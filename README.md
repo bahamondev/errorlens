@@ -1,8 +1,8 @@
 # errorlens
 
 ![Build](https://github.com/bahamondev/errorlens/workflows/Build/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
+[![Version](https://img.shields.io/jetbrains/plugin/v/17622-errorlens.svg)](https://plugins.jetbrains.com/plugin/17622-errorlens)
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/17622-errorlens.svg)](https://plugins.jetbrains.com/plugin/17622-errorlens)
 
 <!-- Plugin description -->
 Errorlens is a plugin for the Intellij IDEs which enhances the error diagnostics.
