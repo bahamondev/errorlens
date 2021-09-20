@@ -4,7 +4,7 @@
 [![Version](https://img.shields.io/jetbrains/plugin/v/17622-errorlens.svg)](https://plugins.jetbrains.com/plugin/17622-errorlens)
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/17622-errorlens.svg)](https://plugins.jetbrains.com/plugin/17622-errorlens)
 
-## Template ToDo list
+## Incomming and TODOs
 - [x] Create a new [IntelliJ Platform Plugin Template][template] project.
 - [ ] Verify the [pluginGroup](/gradle.properties), [plugin ID](/src/main/resources/META-INF/plugin.xml) and [sources package](/src/main/kotlin).
 - [ ] Review the [Legal Agreements](https://plugins.jetbrains.com/docs/marketplace/legal-agreements.html).
