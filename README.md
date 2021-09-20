@@ -5,7 +5,7 @@
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/17622-errorlens.svg)](https://plugins.jetbrains.com/plugin/17622-errorlens)
 
 <!-- Plugin description -->
-Errorlens is a plugin for the Intellij IDEs which enhances the error diagnostics.
+Errorlens is a plugin for the Intellij-based IDEs which enhances the error diagnostics.
 With this plugin, error descriptions are shown inline in the editor, in the same line which generates the error.
 <!-- Plugin description end -->
 
