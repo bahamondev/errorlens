@@ -35,7 +35,7 @@ With this plugin, error descriptions are shown inline in the editor, in the same
 * Fork the project and pull request when the job is done.
 * Use the [Conventional Commits](https://www.conventionalcommits.org) commit standard.
 * Provide test when possible.
-* 
+
 ---
 Plugin based on the [IntelliJ Platform Plugin Template][template].
 
