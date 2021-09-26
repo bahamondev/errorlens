@@ -14,7 +14,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="1.0.2 (e86c870879, 2021-01-15)"
-   sodipodi:docname="pluginIcon.svg">
+   sodipodi:docname="pluginIcon_dark.svg">
   <defs
      id="defs2">
     <inkscape:path-effect
@@ -2185,14 +2185,14 @@
        cy="266.63477"
        r="6.9222074e-07" />
     <ellipse
-       style="fill:#000000;stroke-width:0.0193168"
+       style="fill:#b3b3b3;stroke-width:0.0193168"
        id="path1478-1"
        cx="2.3105247"
        cy="4.8230658"
        rx="0.36226091"
        ry="0.36567023" />
     <ellipse
-       style="fill:#000000;fill-rule:evenodd;stroke-width:0.0193168"
+       style="fill:#b3b3b3;fill-rule:evenodd;stroke-width:0.0193168"
        id="path10"
        cx="6.325449"
        cy="4.7692976"
@@ -2214,21 +2214,21 @@
       </g>
     </g>
     <ellipse
-       style="fill:#000000;stroke-width:0.0193168"
+       style="fill:#b3b3b3;stroke-width:0.0193168"
        id="path36"
        cx="8.4104414"
        cy="4.7671528"
        rx="0.3044129"
        ry="0.51584381" />
     <ellipse
-       style="fill:#000000;stroke-width:0.0282472"
+       style="fill:#b3b3b3;stroke-width:0.0282472"
        id="path1478"
        cx="6.2699776"
        cy="4.7337761"
        rx="0.529742"
        ry="0.53472751" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.241802;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;stroke:#999999;stroke-width:0.241802;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 8.684244,4.6915186 C 9.4458777,4.5651621 8.5149785,7.7251776 9.6619502,8.8093185 l -0.00343,-0.0108"
        id="path1508"
        sodipodi:nodetypes="ccc" />
